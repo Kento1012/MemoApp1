@@ -1,19 +1,21 @@
 import { View, Text, ScrollView, StyleSheet } from 'react-native';
 import Header from '../../component/Header';
 import CircleButton from '../../component/CircleButton';
+import Icon from '../../component/icon';
+
 
 const Detail = (): React.JSX.Element => {
     return(
-        <View>
+        <View style={styles.container}>
             <Header />
 
-            <View>
-                <Text>買い物リスト</Text>
-                <Text>2025年07月28日 10:00</Text>
+            <View style={styles.memoHeader}>
+                <Text style={styles.memoTitle}>買い物リスト</Text>
+                <Text style={styles.memoDate}>2025年07月28日 10:00</Text>
             </View>
 
-            <ScrollView>
-                <Text>
+            <ScrollView style={styles.memoBody}>
+                <Text style={styles.memoBodyText}>
                     買い物リストだけど、お菓子を買ってきた。
                     ぼくはお菓子が好きなので、お菓子を買ってきた。
                     どうして買ってきてしまったんだろう。
@@ -24,9 +26,45 @@ const Detail = (): React.JSX.Element => {
                 </Text>
             </ScrollView>
 
-            <CircleButton>+</CircleButton>
+            <CircleButton style={{ top:160, bottom: 'auto' }}>
+                <Icon name="pencil" size={40} color="#ffffff" />
+            </CircleButton>
         </View>
     )
 }
+
+const styles = StyleSheet.create({
+    container:{
+        flex: 1,
+        backgroundColor: '#ffffff',
+    },
+    memoHeader:{
+        backgroundColor: '#467FD3',
+        height: 96,
+        justifyContent: 'center',
+        paddingVertical: 24,
+        paddingHorizontal: 19,
+    },
+    memoTitle:{
+        color: '#ffffff',
+        fontSize: 20,
+        fontWeight: 'bold',
+        lineHeight: 32,
+    },
+    memoDate:{
+        color: '#ffffff',
+        fontSize: 12,
+        lineHeight: 16,
+    }, 
+    memoBody:{
+        paddingVertical: 32,
+        paddingHorizontal: 27,
+    },
+    memoBodyText:{
+        fontSize: 16,
+        lineHeight: 24,
+        color: '#000000',
+    }
+})
 
 export default Detail;

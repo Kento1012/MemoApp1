@@ -1,7 +1,9 @@
 import { View, StyleSheet } from 'react-native';
+
 import Header from '../../component/Header';
 import MemoListItem from '../../component/MemoListItem';
 import CircleButton from '../../component/CircleButton';
+import Icon from '../../component/icon';
 
 const List = (): React.JSX.Element => {
     return (
@@ -12,7 +14,9 @@ const List = (): React.JSX.Element => {
                  <MemoListItem />
                  <MemoListItem />
             </View>
-            <CircleButton>+</CircleButton>
+            <CircleButton>
+                <Icon name="plus" size={40} color="#ffffff" />
+            </CircleButton>
         </View>
     )
 }
