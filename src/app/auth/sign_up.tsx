@@ -1,6 +1,8 @@
-import { View, Text, TextInput,StyleSheet, TouchableOpacity } from 'react-native';import Header from '../../component/Header';
+import { View, Text, TextInput,StyleSheet, TouchableOpacity } from 'react-native';
 import Button from '../../component/Button';
 import { Link, router } from 'expo-router';
+import { useState } from 'react';
+
 
 const handlePress = (): void => {
     // 館員登録処理
@@ -8,12 +10,31 @@ const handlePress = (): void => {
 }
 
 const SignUp = (): React.JSX.Element => {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
     return(
         <View style={style.container}>
             <View style={style.inner}>
                 <Text style={style.title}>Sign Up</Text>
-                <TextInput style={style.input} value='Email address'  />
-                <TextInput style={style.input} value='Password'/>
+                <TextInput 
+                style={style.input} 
+                value={email}  
+                onChangeText={(text) => {setEmail(text)} }
+                autoCapitalize='none'
+                keyboardType='email-address'
+                placeholder='Email Address'
+                textContentType='emailAddress'
+                />
+                <TextInput 
+                style={style.input} 
+                value={password}
+                onChangeText={(text) => {setPassword(text)} }
+                autoCapitalize='none'
+                secureTextEntry={true}
+                placeholder='Password'
+                textContentType='password'
+                />
                 <Button label='Submit' onPress={handlePress}/>
                 <View style={style.footer}>
                     <Text style={style.footerText}>Already registered?</Text>
