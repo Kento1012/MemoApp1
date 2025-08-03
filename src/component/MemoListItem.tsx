@@ -1,4 +1,5 @@
-import { View, Text, StyleSheet} from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity} from 'react-native';
+import Icon from './icon';
 
 const MemoListItem = (): React.JSX.Element => {
     return(
@@ -8,7 +9,9 @@ const MemoListItem = (): React.JSX.Element => {
                 <Text style={styles.memoListItemDate}>2025年07月28日 10:00</Text>
             </View>
             <View>
-                <Text>X</Text>
+                <TouchableOpacity>
+                    <Icon name="delete" size={32} color="#B0B0B0" />
+                </TouchableOpacity>
             </View>
         </View>
     )
