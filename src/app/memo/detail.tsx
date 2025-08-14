@@ -7,13 +7,16 @@ import Icon from '../../component/icon';
 import { db, auth } from '../../config';
 import { type Memo } from '../../../types/memo';
 
-const handlePress = (): void => {
+const handlePress = (id: string): void => {
     // 編集処理
-    router.push('/memo/edit');
+    router.push({
+        pathname: '/memo/edit',
+        params: { id },
+    });
 }
 
 const Detail = (): React.JSX.Element => {
-    const { id } = useLocalSearchParams();
+    const id = String(useLocalSearchParams().id);
     console.log(id)
     const [memo, setMemo] = useState<Memo | null>(null);
 
@@ -43,7 +46,7 @@ const Detail = (): React.JSX.Element => {
                 </Text>
             </ScrollView>
 
-            <CircleButton style={{ top:60, bottom: 'auto' }} onPress={handlePress}>
+            <CircleButton style={{ top:60, bottom: 'auto' }} onPress={ () => handlePress(id) }>
                 <Icon name="pencil" size={40} color="#ffffff" />
             </CircleButton>
         </View>
